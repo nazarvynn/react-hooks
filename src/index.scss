@@ -1,0 +1,38 @@
+@use 'sass:math';
+@import '~materialize-css/sass/components/_color-variables.scss';
+$primary-color: color('blue', 'lighten-2') !default;
+$primary-color-light: lighten($primary-color, 15%) !default;
+$primary-color-dark: darken($primary-color, 15%) !default;
+$secondary-color: color('amber', 'lighten-1') !default;
+@import '~materialize-css/sass/materialize.scss';
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  padding: 40px;
+}
+
+.todo {
+  margin-bottom: 1rem;
+}
+
+.todo.completed span {
+  text-decoration: line-through;
+}
+
+.todo label {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  background: #f3f3f3;
+  padding: 1rem;
+}
+
+.todo i {
+  z-index: 2;
+}

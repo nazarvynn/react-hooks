@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { useLocation, matchPath } from 'react-router';
 
 export interface NavigationItem {
   label: string;
@@ -8,6 +9,10 @@ const NAVIGATION: NavigationItem[] = [
   {
     label: 'Home',
     path: '/',
+  },
+  {
+    label: 'ToDo',
+    path: '/todo',
   },
   {
     label: 'useState',
@@ -28,16 +33,18 @@ const NAVIGATION: NavigationItem[] = [
 ];
 
 export default function Navigation() {
+  const { pathname } = useLocation();
   return (
-    <ul className="nav nav-pills justify-content-center m-4">
-      {NAVIGATION.map(({ label, path }: NavigationItem, index) => (
-        <li className="nav-item" key={index}>
-          <NavLink className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')} to={path}>
-            {label}
-          </NavLink>
-        </li>
-      ))}
-    </ul>
+    <nav>
+      <div className="nav-wrapper">
+        <ul>
+          {NAVIGATION.map(({ label, path }: NavigationItem, index) => (
+            <li key={index} className={matchPath(`/${path}/*`, pathname) ? 'active' : ''}>
+              <NavLink to={path}>{label}</NavLink>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </nav>
   );
 }
-//

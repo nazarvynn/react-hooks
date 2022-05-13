@@ -1,10 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
-import { Home, PageUseState, PageUseEffect, PageUseContext, PageUseReducer } from './pages';
+import { Home, PageTodo, PageUseState, PageUseEffect, PageUseContext, PageUseReducer } from './pages';
 
 export default function AppRouter() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="todo" element={<PageTodo />} />
       <Route path="use-state" element={<PageUseState />} />
       <Route path="use-effect" element={<PageUseEffect />} />
       <Route path="use-context" element={<PageUseContext />} />
