@@ -1,4 +1,7 @@
-import About from './About';
 import Home from './Home';
+import PageUseState from './PageUseState';
+import PageUseEffect from './PageUseEffect';
+import PageUseContext from './PageUseContext';
+import PageUseReducer from './PageUseReducer';
 
-export { About, Home };
+export { Home, PageUseState, PageUseEffect, PageUseContext, PageUseReducer };

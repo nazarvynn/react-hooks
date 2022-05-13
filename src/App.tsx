@@ -1,11 +1,13 @@
-import React from 'react';
 import AppRouter from './AppRouter';
+import Navigation from './common/Navigation';
 
 function App() {
   return (
     <div className="App">
-      <h1>React Hooks</h1>
-      <AppRouter />
+      <Navigation />
+      <main>
+        <AppRouter />
+      </main>
     </div>
   );
 }
