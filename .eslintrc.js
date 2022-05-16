@@ -24,6 +24,7 @@ module.exports = {
   rules: {
     'react/react-in-jsx-scope': 'off',
     'react/jsx-uses-vars': 'error',
+    '@typescript-eslint/no-empty-function': ['error', { allow: ['arrowFunctions'] }],
   },
   settings: {
     react: {
