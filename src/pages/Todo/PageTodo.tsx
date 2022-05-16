@@ -1,42 +1,25 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useReducer } from 'react';
 import { ContextTodo } from './contextTodo';
+import reducerTodo from './reducerTodo';
 import TodoList from './TodoList';
 
 export default function PageTodo() {
-  const [todos, setTodos] = useState([] as any[]);
+  const [state, dispatch] = useReducer(reducerTodo, JSON.parse(localStorage.getItem('todos')!) || []);
   const [todoTitle, setTodoTitle] = useState('');
   const addTodo = (event: any) => {
     if (event.key === 'Enter') {
-      setTodos([...todos, { id: '' + Date.now(), title: todoTitle, completed: false }]);
+      dispatch({ type: 'add', payload: todoTitle });
       setTodoTitle('');
     }
   };
 
   useEffect(() => {
-    const todos = JSON.parse(localStorage.getItem('todos')!) || [];
-    setTodos(todos);
-  }, []);
-  useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos));
+    localStorage.setItem('todos', JSON.stringify(state));
     return () => {};
-  }, [todos]);
-
-  const toggleTodo = (id: string) => {
-    setTodos(
-      todos.map((todo) => {
-        if (id === todo.id) {
-          todo.completed = !todo.completed;
-        }
-        return todo;
-      }),
-    );
-  };
-  const removeTodo = (id: string) => {
-    setTodos(todos.filter((todo) => id !== todo.id));
-  };
+  }, [state]);
 
   return (
-    <ContextTodo.Provider value={{ toggleTodo, removeTodo }}>
+    <ContextTodo.Provider value={{ dispatch }}>
       <h1>Todo app</h1>
 
       <div className="input-field">
@@ -49,7 +32,7 @@ export default function PageTodo() {
         />
       </div>
 
-      <TodoList todos={todos} />
+      <TodoList todos={state} />
     </ContextTodo.Provider>
   );
 }
