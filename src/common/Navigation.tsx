@@ -1,5 +1,5 @@
+import { matchPath,useLocation } from 'react-router';
 import { NavLink } from 'react-router-dom';
-import { useLocation, matchPath } from 'react-router';
 
 export interface NavigationItem {
   label: string;
