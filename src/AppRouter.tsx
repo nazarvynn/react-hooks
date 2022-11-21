@@ -14,16 +14,17 @@ export default function AppRouter() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<MainLayout />} />
-        <Route index element={<Home />} />
-        <Route path="todo" element={<PageTodo />} />
-        <Route path="form-page" element={<FormPage />} />
-        <Route path="use-memo" element={<UseMemoPage />} />
-        <Route path="use-callback" element={<UseCallbackPage />} />
-        <Route path="use-ref" element={<UseRefPage />} />
-        <Route path="page-a" element={<PageA />} />
-        <Route path="use-reducer" element={<PageUseReducer />} />
-        <Route path="use-context" element={<PageUseContext />} />
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<Home />} />
+          <Route path="todo" element={<PageTodo />} />
+          <Route path="form-page" element={<FormPage />} />
+          <Route path="use-memo" element={<UseMemoPage />} />
+          <Route path="use-callback" element={<UseCallbackPage />} />
+          <Route path="use-ref" element={<UseRefPage />} />
+          <Route path="page-a" element={<PageA />} />
+          <Route path="use-reducer" element={<PageUseReducer />} />
+          <Route path="use-context" element={<PageUseContext />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
