@@ -1,16 +1,30 @@
-import { Route, Routes } from 'react-router-dom';
-
-import { Home, PageTodo, PageUseContext, PageUseEffect, PageUseReducer,PageUseState } from './pages';
+import FormPage from 'pages/FormPage';
+import Home from 'pages/Home';
+import MainLayout from 'pages/MainLayout';
+import PageA from 'pages/PageA';
+import PageUseContext from 'pages/PageUseContext';
+import PageUseReducer from 'pages/PageUseReducer';
+import PageTodo from 'pages/Todo/PageTodo';
+import UseCallbackPage from 'pages/UseCallbackPage';
+import UseMemoPage from 'pages/UseMemoPage';
+import UseRefPage from 'pages/UseRefPage';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 export default function AppRouter() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="todo" element={<PageTodo />} />
-      <Route path="use-state" element={<PageUseState />} />
-      <Route path="use-effect" element={<PageUseEffect />} />
-      <Route path="use-context" element={<PageUseContext />} />
-      <Route path="use-reducer" element={<PageUseReducer />} />
-    </Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainLayout />} />
+        <Route index element={<Home />} />
+        <Route path="todo" element={<PageTodo />} />
+        <Route path="form-page" element={<FormPage />} />
+        <Route path="use-memo" element={<UseMemoPage />} />
+        <Route path="use-callback" element={<UseCallbackPage />} />
+        <Route path="use-ref" element={<UseRefPage />} />
+        <Route path="page-a" element={<PageA />} />
+        <Route path="use-reducer" element={<PageUseReducer />} />
+        <Route path="use-context" element={<PageUseContext />} />
+      </Routes>
+    </BrowserRouter>
   );
 }

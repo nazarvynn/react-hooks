@@ -1,15 +1,7 @@
 import AppRouter from './AppRouter';
-import Navigation from './common/Navigation';
 
 function App() {
-  return (
-    <div className="App">
-      <Navigation />
-      <main>
-        <AppRouter />
-      </main>
-    </div>
-  );
+  return <AppRouter />;
 }
 
 export default App;
